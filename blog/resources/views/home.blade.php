@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-                <a  href="blog/admin"> admin</a>
-                <!-- href="{{ route('register') }}" -->
+                <a  href="{{ route('admin') }}"> admin</a>
+                
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">

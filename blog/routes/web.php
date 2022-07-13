@@ -25,22 +25,22 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('blog/admin', function () {
     return view('admin');
-})->middleware('auth');
+})->name('admin')->middleware('auth');
 
 
-Route::get('blog/category', [CategoryController::class, 'list'])->name('cat-list');
-Route::get('/category/{category}/delete', [CategoryController::class, 'del']);
+Route::get('blog/category', [CategoryController::class, 'list'])->name('cat-list')->middleware('auth');
+Route::get('/category/{category}/delete', [CategoryController::class, 'del'])->middleware('auth');
 
 Route::get('/category/{category}/edit', function ($category) {
     $t = Category::query()->where('id', $category)->first();
     return view('category/editcat', ['category' => $t]);
-});
-Route::post('/Category/update', [CategoryController::class, 'update'])->name('update');
+})->middleware('auth');
+Route::post('/Category/update', [CategoryController::class, 'update'])->name('update')->middleware('auth');
 
 Route::get('/category/create', function () {
     return view('category/createcat');
-});
-Route::post('/Category/store', [CategoryController::class, 'store'])->name('add');
-Auth::routes();
+})->middleware('auth');
+Route::post('/Category/store', [CategoryController::class, 'store'])->name('add')->middleware('auth');
 
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

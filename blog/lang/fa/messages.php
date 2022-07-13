@@ -11,7 +11,7 @@ return array(
     */
     'hello' => 'سلام',
 
-    'greeting'=>'کاربر گرامی به صفحه خوش آمدید.',
+    'greetingadmin'=>' عزیز به صفحه مدیریت خوش آمدید',
     
     'previous' => '&laquo; قبلی',
 

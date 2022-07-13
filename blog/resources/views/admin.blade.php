@@ -3,9 +3,8 @@
 @extends('layouts.mylayout')
 
 @section('content')
-<?php
- echo"hello from admin"; ?>
-<!-- <?php echo __('messages.greeting'); ?> -->
+
+<?php echo __('messages.greetingadmin'); ?>{{ Auth::user()->name }}
 <br>
 
 @endsection

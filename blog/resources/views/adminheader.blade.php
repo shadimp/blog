@@ -24,7 +24,7 @@
                         <a href="{{ route('cat-list') }}"> مدیریت دسته های خبری</a>
                     </li>
                     <li>
-                    <a href="{{ route('content') }}"> مدیریت متن خبر </a>
+                    <a href="{{ route('cat-list') }}"> مدیریت متن خبر </a>
 
                     </li>
 
