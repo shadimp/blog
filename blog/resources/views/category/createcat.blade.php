@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,14 +14,3 @@
         </form>
     </body>
 </html>
-
-@foreach($category as $t)
-
-<?php
-echo $t->id . $t->title ;
-?>
-<a href="/category/{{$t->id}}/edit"> edit</a>
-<a href="/category/{{$t->id}}/delete"> delete</a>
-<br>
-@endforeach
-

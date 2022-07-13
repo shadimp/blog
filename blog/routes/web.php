@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
-
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,28 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+//login page
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('blog/category', [CategoryController::class, 'list'])->name('cat-list');;
+Route::get('blog/admin', function () {
+    return view('admin');
+})->middleware('auth');
+
+
+Route::get('blog/category', [CategoryController::class, 'list'])->name('cat-list');
+Route::get('/category/{category}/delete', [CategoryController::class, 'del']);
+
+Route::get('/category/{category}/edit', function ($category) {
+    $t = Category::query()->where('id', $category)->first();
+    return view('category/editcat', ['category' => $t]);
+});
+Route::post('/Category/update', [CategoryController::class, 'update'])->name('update');
+
+Route::get('/category/create', function () {
+    return view('category/createcat');
+});
+Route::post('/Category/store', [CategoryController::class, 'store'])->name('add');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
