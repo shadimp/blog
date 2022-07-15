@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
                 <a  href="{{ route('admin') }}"> admin</a>
+                <a  href="{{ route('mainpage') }}"> admin</a>
                 
                 <div class="card-body">
                     @if (session('status'))

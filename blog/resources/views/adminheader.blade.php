@@ -18,7 +18,7 @@
             <div class="navbar">
                 <ul class="menu">
                     <li>
-                        <a href=index.php><i class="fa fa-home" style="font-size:36px"></i></a>
+                        <a href="{{ route('mainpage') }}"><i class="fa fa-home" style="font-size:36px"></i></a>
                     </li>
                     <li>
                         <a href="{{ route('cat-list') }}"> مدیریت دسته های خبری</a>

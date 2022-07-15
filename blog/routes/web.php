@@ -26,6 +26,7 @@ Auth::routes();
 //login page
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/mainpage', [NewscontentController::class, 'mainshow'])->name('mainpage');
 Route::get('blog/admin', function () {
     return view('admin');
 })->name('admin')->middleware('auth');
@@ -55,7 +56,6 @@ Route::get('/content/{content}/edit', function ($content) {
 Route::post('/content/update', [NewscontentController::class, 'update'])->name('content-update')->middleware('auth');
 
 
-Route::get('/add/store',[NewsimageController::class,'index'])->name('image-add');
 Route::post('/image/store',[NewsimageController::class ,'store'])->name('image-store');
 
 Auth::routes();

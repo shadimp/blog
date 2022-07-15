@@ -3,19 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Newsimagerequest;
+use App\Models\Newsimage;
 use Illuminate\Http\Request;
 
 class NewsimageController extends Controller
 {
-    public function index()
-    {
-        return view('showcontentblade');
-    }
-   
     //
     public function store(request $request)
-    {
-      
+    {      
         $file = $request->file('image');
         $destination = base_path() . '\public\photos' ;
     
@@ -25,6 +20,13 @@ class NewsimageController extends Controller
         $destination = $destination . '/';    
         $filename = rand(1111111, 99999999);
         $file->move($destination, $filename . $request->file('image')->getClientOriginalName());
-        return redirect()->route('content-list');
+       
+        //
+        $newsimage= new Newsimage();
+        $newsimage->newsid = $request->id;
+        $newsimage->imagepath = $filename . $request->file('image')->getClientOriginalName();
+        if ($newsimage->save()) {
+            return redirect()->route('content-list');
+        }   
     }
 }
