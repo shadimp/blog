@@ -55,7 +55,7 @@ class NewscontentController extends Controller
     {
         $s = newscontent::query()->get()->all();
        
-        $s2 = Newsimage::query()->join('Newscontents', 'Newscontents.id', '=', 'newsimages.newsid')->distinct()->get();
+        $s2 = Newsimage::query()->join('Newscontents', 'Newscontents.id', '=', 'newsimages.newsid')->distinct()->get()->all();
 
         return view('/mainpage', compact('s','s2'));
     }
