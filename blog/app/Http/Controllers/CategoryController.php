@@ -23,9 +23,9 @@ class CategoryController extends Controller
 
     public function update(CategoryUpdaterequest $request)
     {
+        // dd($request);
         $category = Category::query()->where('id', $request->id)->first();
-        // $category = category::query()->where('id', $category)->first();
-
+        
         if ($category) {
             $category->id = $request->id;
             $category->title = $request->title;
