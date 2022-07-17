@@ -2,22 +2,35 @@
 <html>
 
 <head>
+    <style>
+        .form1 {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            width: 30%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 
 <body>
+    <div>
+        <form method="post" action={{route('update',['category'=>$category])}} class="form1">
+            @csrf
+            <label>شماره:</label><br><input type="text" name="id" value="{{$category->id}}"><br>
+            <label>نام دسته: </label><br><input type="text" name="title" value="{{$category->title}}"><br>
+            <br>
+            <input type="submit" value="ثبت تغییرات">
 
-    <?php
-    // echo __('messages.greeting');
-    ?>
-
-    <form method="post" action={{route('update',['category'=>$category])}}>
-        @csrf
-        شماره:<input type="text" name="id" value="{{$category->id}}"><br>
-         نام دسته: <input type="text" name="title" value="{{$category->title}}"><br>
-       
-        <input type="submit" value="ثبت تغییرات">
-
-    </form>
+        </form>
+    </div>
 </body>
 
 </html>

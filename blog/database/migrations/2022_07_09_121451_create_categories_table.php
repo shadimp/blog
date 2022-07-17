@@ -17,7 +17,7 @@ return new class extends Migration
             
             $table->increments('id');
             $table->string('title');
-            $table->boolean('have_subgrouup')->default(false);
+            $table->boolean('have_subgroup')->default(false);
           
             $table->timestamps();
         });

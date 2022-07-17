@@ -6,8 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-                <a  href="{{ route('admin') }}"> admin</a>
-                <a  href="{{ route('mainpage') }}"> admin</a>
+                <a  href="{{ route('admin') }}"> ادمین</a>
+                <a  href="{{ route('mainpage') }}"> خانه</a>
                 
                 <div class="card-body">
                     @if (session('status'))

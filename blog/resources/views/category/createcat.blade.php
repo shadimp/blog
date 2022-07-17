@@ -4,13 +4,12 @@
 
     </head>
     <body>
-        <form method="post" action={{route('add')}}>
-            @csrf
-            <!-- شماره:<input type="text" name="id"><br> -->
-           نام دسته: <input type="tile" name="title"><br>
-            
+        <div>
+        <form method="post" action={{route('add')}}  style="width:30%">
+            @csrf           
+           نام دسته: <input type="tile" name="title">            
             <input type="submit" >
-
         </form>
+        </div>
     </body>
 </html>

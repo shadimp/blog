@@ -15,6 +15,7 @@ class CategoryController extends Controller
         //  dd($s);
          return view('/category/showcat', ['category' => $s]);
     }
+   
     public function del(Category  $category)
     {
         $category->delete();

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<?php echo __('messages.greetingadmin'); ?>{{ Auth::user()->name }}
+<p style="direction:rtl">{{ Auth::user()->name }}<?php echo __('messages.greetingadmin'); ?></p>
 <br>
 
 @endsection

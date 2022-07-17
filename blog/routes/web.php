@@ -55,6 +55,7 @@ Route::get('/content/{content}/edit', function ($content) {
 })->middleware('auth');
 Route::post('/content/update', [NewscontentController::class, 'update'])->name('content-update')->middleware('auth');
 
+Route::get('content/{content}/details',[NewscontentController::class, 'showdetails']);
 
 Route::post('/image/store',[NewsimageController::class ,'store'])->name('image-store');
 

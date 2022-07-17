@@ -16,6 +16,11 @@ class NewscontentController extends Controller
         //  dd($s);
         return view('/content/showcontent', ['content' => $s]);
     }
+    public function showdetails($id)
+    {
+        $s = Newsimage::query()->join('Newscontents', 'Newscontents.id', '=', 'newsimages.newsid')->where('Newscontents.id', $id)->distinct()->get()->all();
+        return view('/content/details', ['content' => $s]);
+    }
     public function store(Request $request)
     {
         $newscontent = new newscontent();
@@ -54,9 +59,9 @@ class NewscontentController extends Controller
     public function mainshow()
     {
         $s = newscontent::query()->get()->all();
-       
+
         $s2 = Newsimage::query()->join('Newscontents', 'Newscontents.id', '=', 'newsimages.newsid')->distinct()->get()->all();
 
-        return view('/mainpage', compact('s','s2'));
+        return view('/mainpage', compact('s', 's2'));
     }
 }

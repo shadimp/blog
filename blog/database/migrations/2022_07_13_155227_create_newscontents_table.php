@@ -18,8 +18,8 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('catid');
             $table->string('newstitle');
-            $table->string('summery');
-            $table->fullText('fullcontent');
+            $table->string('summery')->nullable();
+            $table->text('fullcontent')->nullable();
           
             $table->timestamps();
         });

@@ -9,17 +9,15 @@
     <?php
     // echo __('messages.greeting');
     ?>
-
     <form method="post" action={{route('content-update',['content'=>$content])}}>
         @csrf
-        شماره ردیف خبر: <input type="text" name="id" value="{{$content->id}}"><br>
-        شماره دسته خبری: <input type="text" name="catid" value="{{$content->catid}}"><br>
-        عنوان خبر: <input type="text" name="newstitle" value="{{$content->newstitle}}"><br>
-        خلاصه خبر: <input type="text" name="summery" value="{{$content->summery}}"><br>
-        متن کامل خبر: <input type="text" name="fullcontent" value="{{$content->fullcontent}}"><br>
+        <label>شماره ردیف خبر: </label><br><input type="text" name="id" value="{{$content->id}}"><br>
+        <label>شماره دسته خبری:</label><br> <input type="text" name="catid" value="{{$content->catid}}"><br>
+        <label>عنوان خبر: </label><br><textarea type="text" name="newstitle"  rows="1" cols="90">{{$content->newstitle}}</textarea><br>
+        <label>خلاصه خبر: </label><br><textarea type="text" name="summery" rows="4" cols="90">{{{$content->summery}}}</textarea><br>
+        <label>متن کامل خبر:</label><br> <textarea type="text" name="fullcontent"  rows="4" cols="90">{{$content->fullcontent}}</textarea><br>
 
         <input type="submit" value="ثبت تغییرات">
-
     </form>
 </body>
 
