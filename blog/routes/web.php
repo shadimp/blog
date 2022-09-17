@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\NewscontentController;
 use App\Http\Controllers\NewsimageController;
 use App\Models\Category;
@@ -46,7 +47,7 @@ Route::get('/category/create', function () {
 })->middleware('auth');
 Route::post('/Category/store', [CategoryController::class, 'store'])->name('add')->middleware('auth');
 
-Route::get('/content/list', [NewscontentController::class, 'list'])->name('content-list')->middleware('auth');
+Route::get('/content/list', [NewscontentController::class, 'list'])->name('content-list');
 Route::post('/content/store', [NewscontentController::class, 'store'])->name('add-content')->middleware('auth');
 Route::get('/content/{content}/delete', [NewscontentController::class, 'del'])->middleware('auth');
 Route::get('/content/{content}/edit', function ($content) {
@@ -58,6 +59,9 @@ Route::post('/content/update', [NewscontentController::class, 'update'])->name('
 Route::get('content/{content}/details',[NewscontentController::class, 'showdetails']);
 
 Route::post('/image/store',[NewsimageController::class ,'store'])->name('image-store');
+
+Route::post('/gallery/store',[GalleryController::class ,'store'])->name('gallery-store');
+Route::get('/gallery', [GalleryController::class, 'list'])->name('gallery');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
