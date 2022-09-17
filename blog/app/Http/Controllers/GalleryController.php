@@ -28,7 +28,8 @@ class GalleryController extends Controller
        
         //
         $newimage= new gallery();
-        $newimage->type= 'jpg';
+        $xfile= $filename . $request->file('image')->getClientOriginalName();
+        $newimage->type=strtolower(pathinfo($xfile,PATHINFO_EXTENSION));
         $newimage->imagepath = $filename . $request->file('image')->getClientOriginalName();
         if ($newimage->save()) {
             return redirect()->route('gallery');
